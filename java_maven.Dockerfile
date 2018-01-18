@@ -15,6 +15,7 @@ RUN cd opt/ && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e2
 ENV JAVA_HOME /opt/jdk1.8.0_161
 ENV PATH $JAVA_HOME/bin:$PATH
 
+#Building app
 RUN git clone https://github.com/vauchok/helloworld.git
 RUN cd helloworld/ && mvn clean install
 
