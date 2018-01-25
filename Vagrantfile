@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
     #d.vm.provision 'shell', inline: <<-EOF
     #EOF
     #d.vm.provision "shell", path: "java_setup.sh"
-	#d.vm.provision "shell", path: "docker_setup.sh"
+    #d.vm.provision "shell", path: "docker_setup.sh"
     #jnk.vm.provision "shell", path: "nginx_setup.sh"
     #jnk.vm.provision "shell", path: "jenkins_setup.sh" 
   end
