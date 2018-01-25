@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
   config.vm.define "docker" do |d|
-    d.vm.box = "centos-7.4-x86_64-minimal"
+    d.vm.box = "centos-7.4"
     d.vm.hostname = "docker"
     d.vm.network :private_network, type: "dhcp"
     d.ssh.insert_key = false
