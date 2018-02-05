@@ -24,4 +24,5 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 yum -y groupinstall 'Development Tools'
 npm install -g react-native-cli
 
+echo 'Installing dependences'
 yum install -y glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686 ncurses-devel.i686 libX11-devel.i686 libXrender.i686 libXrandr.i686
