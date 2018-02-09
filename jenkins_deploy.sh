@@ -8,11 +8,14 @@ source ~/.bash_profile
 
 #####_NGINX_instalation_and_configuration_#####
 yum -y install nginx
-sed -i "47a\ \tproxy_pass http://127.0.0.1:8080;\n\tproxy_redirect off;\n\tproxy_set_header Host $host;\n\tproxy_set_header X-Real-IP $remote_addr;\n\tproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n\tproxy_set_header X-Forwarded-Proto $scheme;" /etc/nginx/nginx.conf 
+sed -i '47a\ \tproxy_pass http://127.0.0.1:8080;\n\tproxy_redirect off;\n\tproxy_set_header Host $host;\n\tproxy_set_header X-Real-IP $remote_addr;\n\tproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n\tproxy_set_header X-Forwarded-Proto $scheme;' /etc/nginx/nginx.conf 
 systemctl start nginx
 systemctl enable nginx
 
 #####_Jenkins_instalation_#####
+useradd jenkins
+echo 'jenkins' | passwd jenkins --stdin
+
 cd /opt/
 wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 
