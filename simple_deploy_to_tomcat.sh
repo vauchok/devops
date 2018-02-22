@@ -20,7 +20,9 @@ create_dir $BACKUP
 create_dir $ARTIFACTS
 
 scp $REPOSITORY/$NUM.tar.gz tomcat@tomcat:$ARTIFACTS
-ssh tomcat@tomcat "tar -zxvf $ARTIFACTS/$NUM.tar.gz -C $ARTIFACTS && cp $TOMCAT/webapps/hello.war $BACKUP && curl -v --user tomcat:tomcat --upload-file $ARTIFACTS/$NUM.war 'http://tomcat/manager/text/deploy?path=/hello&update=true' && rm -rf $ARTIFACTS"
+ssh tomcat@tomcat "tar -zxvf $ARTIFACTS/$NUM.tar.gz -C $ARTIFACTS && cp $TOMCAT/webapps/hello.war $BACKUP && \
+curl -v --user tomcat:tomcat --upload-file $ARTIFACTS/$NUM.war 'http://tomcat/manager/text/deploy?path=/hello&update=true' && \
+rm -rf $ARTIFACTS"
 
 ####_Tests_####
 t1=$(curl -L http://tomcat/hello | sed -n '/Hello World AGAIN!/p')
