@@ -9,11 +9,7 @@ mkdir -p /opt/jenkins/jenkins-slave
 chown -R jenkins:jenkins /opt/jenkins/jenkins-slave
 
 #java installation
-yum -y install vim git unzip nodejs
-cd /opt && wget --no-cookies --no-check-certificate --header \
-"Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
-"http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz" \
-&& tar xzf jdk-8u161-linux-x64.tar.gz && rm -rf jdk-8u161-linux-x64.tar.gz
+yum -y install vim git unzip java-1.8.0-openjdk-devel
 sed -i '/# User specific/a \export JAVA_HOME=/opt/jdk1.8.0_161' $JENKINS_USER_HOME/.bashrc
 sed -i '/export JAVA_HOME/a \export PATH=$JAVA_HOME/bin:$PATH' $JENKINS_USER_HOME/.bashrc
 source $JENKINS_USER_HOME/.bashrc
