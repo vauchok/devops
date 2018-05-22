@@ -10,9 +10,7 @@ echo 'tomcat' | passwd tomcat --stdin
 #Tomcat installation
 cd /opt/
 wget http://ftp.byfly.by/pub/apache.org/tomcat/tomcat-9/v9.0.8/bin/apache-tomcat-9.0.8.tar.gz
-tar -xzvf apache-tomcat-9.0.8.tar.gz
-mv apache-tomcat-9.0.8/* tomcat/
-rm -rf apache*
+tar -xzvf apache-tomcat-9.0.8.tar.gz && mv apache-tomcat-9.0.8/* tomcat/ && rm -rf apache*
 chown -hR tomcat:tomcat /opt/tomcat/
 
 #Tomcat service
